@@ -8,10 +8,10 @@ st.title("🏠 House Price Prediction App")
 # ---------------------------
 # Load Model Safely
 # ---------------------------
-if not os.path.exists("model(1).pkl"):
-    st.error("❌ model(1).pkl file not found! Please upload it to the same folder as app.py")
+if not os.path.exists("model.pkl"):
+    st.error("❌ model.pkl file not found! Please upload it to the same folder as app.py")
 else:
-    model = pickle.load(open("model(1).pkl", "rb"))
+    model = pickle.load(open("model.pkl", "rb"))
 
 # ---------------------------
 # Inputs
@@ -29,7 +29,7 @@ Longitude = st.number_input("Longitude", 0.0)
 # Prediction
 # ---------------------------
 if st.button("Predict"):
-    if not os.path.exists("model(1).pkl"):
+    if not os.path.exists("model.pkl"):
         st.error("❌ Cannot predict because model.pkl is missing.")
     else:
         data = np.array([[MedInc, HouseAge, AveRooms, AveBedrms, Population, AveOccup, Latitude, Longitude]])
